@@ -1,4 +1,4 @@
-import streamlit as st
+streamlit run app.pyimport streamlit as st
 import pandas as pd
 from model import predict_event_impact
 
@@ -9,7 +9,7 @@ st.set_page_config(
 )
 
 # ---------- DATA ----------
-file_path = r"C:\Users\shubh\Downloads\Astram event data_anonymized - Astram event data_anonymizedb40ac87.csv"
+file_path = "Astram event data_anonymized - Astram event data_anonymizedb40ac87.csv"
 df = pd.read_csv(file_path)
 
 df["start_datetime"] = pd.to_datetime(df["start_datetime"], errors="coerce")
