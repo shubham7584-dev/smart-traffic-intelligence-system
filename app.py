@@ -1,4 +1,4 @@
-streamlit run app.pyimport streamlit as st
+import streamlit as st
 import pandas as pd
 from model import predict_event_impact
 
