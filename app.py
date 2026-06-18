@@ -85,7 +85,11 @@ requires_road_closure = st.sidebar.selectbox(
 predict_btn = st.sidebar.button("🚀 Predict Impact", use_container_width=True)
 
 # ---------- HERO ----------
-st.markdown('<div class="main-title">🚦 Smart Event Traffic Intelligence System</div>', unsafe_allow_html=True)
+st.markdown(
+    '<div class="main-title">🚦 Smart Event Traffic Intelligence System</div>',
+    unsafe_allow_html=True
+)
+
 st.markdown(
     '<div class="sub-text">Predict event-driven traffic congestion and recommend manpower, barricading, and diversion strategy before breakdown occurs.</div>',
     unsafe_allow_html=True
@@ -190,7 +194,6 @@ if predict_btn:
         • Diversion Status: {resources['diversion_required']}  
         """
     )
-
 else:
     st.info("Select event details from the sidebar and click Predict Impact.")
 
@@ -201,15 +204,8 @@ st.markdown('<div class="section-title">🗺️ Traffic Event Hotspot Map</div>'
 
 st.write("Historical event locations mapped using latitude and longitude coordinates.")
 
-try:
-    st.image(
-        r"C:\Users\shubh\Desktop\python\eda.py\hotspot_map.jpeg",
-        caption="Traffic Event Hotspot Distribution",
-        use_container_width=True
-    )
-except:
-    map_data = df[["latitude", "longitude"]].dropna()
-    st.map(map_data)
+map_data = df[["latitude", "longitude"]].dropna()
+st.map(map_data)
 
 st.divider()
 
@@ -219,14 +215,14 @@ st.markdown('<div class="section-title">📊 Historical Data Analysis</div>', un
 g1, g2 = st.columns(2)
 
 with g1:
-    st.image("graphs/event_type_pie.png", caption="Planned vs Unplanned Events", use_container_width=True)
-    st.image("graphs/event_cause_bar.png", caption="Top Event Causes", use_container_width=True)
-    st.image("graphs/top_zones.png", caption="Top Zones by Event Count", use_container_width=True)
+    st.image("event_type_pie.png", caption="Planned vs Unplanned Events", use_container_width=True)
+    st.image("event_cause_bar.png", caption="Top Event Causes", use_container_width=True)
+    st.image("top_zones.png", caption="Top Zones by Event Count", use_container_width=True)
 
 with g2:
-    st.image("graphs/hour_wise_events.png", caption="Hour-wise Event Distribution", use_container_width=True)
-    st.image("graphs/top_police_stations.png", caption="Top Police Stations by Event Count", use_container_width=True)
-    st.image("graphs/road_closure_probability.png", caption="Road Closure Probability by Event Cause", use_container_width=True)
+    st.image("hour_wise_events.png", caption="Hour-wise Event Distribution", use_container_width=True)
+    st.image("top_police_stations.png", caption="Top Police Stations by Event Count", use_container_width=True)
+    st.image("road_closure_probability.png", caption="Road Closure Probability by Event Cause", use_container_width=True)
 
 st.divider()
 
@@ -238,7 +234,7 @@ st.info("""
 
 ⬇️
 
-⚙️ Feature Extraction
+⚙️ Feature Extraction  
 (Time, Cause, Location, Priority)
 
 ⬇️
@@ -253,3 +249,20 @@ st.info("""
 
 🗺️ Dashboard + Hotspot Map + Insights
 """)
+
+st.divider()
+
+# ---------- WHY ----------
+st.markdown('<div class="section-title">🚀 Why Our Solution?</div>', unsafe_allow_html=True)
+
+st.markdown("""
+ -Predicts congestion before it occurs  
+ -Recommends police deployment  
+ -Estimates barricading requirement  
+ -Predicts road closure probability  
+ -Identifies high-risk locations and peak hours  
+ -Enables proactive traffic management  
+ -Supports post-event learning and future planning  
+""")
+
+st.caption("Built for Event-Driven Congestion Management | Predict → Recommend → Learn")
