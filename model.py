@@ -1,6 +1,6 @@
 import pandas as pd
 
-file_path = r"C:\Users\shubh\Downloads\Astram event data_anonymized - Astram event data_anonymizedb40ac87.csv"
+file_path = "Astram event data_anonymized - Astram event data_anonymizedb40ac87.csv"
 
 df = pd.read_csv(file_path)
 
